@@ -1,10 +1,10 @@
 package com.example.animationpractice.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.animationpractice.data.Repository
 import com.example.animationpractice.data.database.entities.MyCardsScreenEntity
 import com.example.animationpractice.models.MyCardsScreenResponse
-import com.example.animationpractice.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,19 +24,22 @@ class MainViewModel @Inject constructor(
         }
 
 
-    var cardsScreenResponse: MutableLiveData<NetworkResult<MyCardsScreenResponse>> = MutableLiveData()
+    private var cardsScreenResponse: MutableLiveData<MyCardsScreenResponse> = MutableLiveData()
 
 
     fun getCardsScreenResponse() = viewModelScope.launch {
         try {
             val response= repository.remote.getMyCardsScreenData()
             if (response.isSuccessful){
-                cardsScreenResponse.value= NetworkResult.Success(response.body()!!)
-                (cardsScreenResponse.value as NetworkResult.Success<MyCardsScreenResponse>).data?.let { MyCardsScreenEntity(it) }
-                    ?.let { insertMyCardsScreenData(it) }
+                cardsScreenResponse.value= response.body()
+                if (cardsScreenResponse.value!=null){
+                    insertMyCardsScreenData(MyCardsScreenEntity(cardsScreenResponse.value!!))
+                }
+
+
             }
         } catch (e: Exception) {
-            cardsScreenResponse.value = NetworkResult.Error("Some error occured.")
+            Log.d("MainViewModel","some error occured")
         }
     }
 

@@ -5,7 +5,12 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/drawable/rect_border_filled.xml" value="0.3828125" />
         <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/layout/fragment_card.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/layout/fragment_card_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/layout/fragment_cards.xml" value="0.3592592592592593" />
         <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/layout/item_card_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/layout/item_transaction_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/AnimationPractice/app/src/main/res/xml/motion_scene.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
@@ -14,5 +19,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.36666666666666664" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -3,4 +3,10 @@
     <string name="my_cards">My Cards</string>
     <string name="balance">Balance</string>
     <string name="dummy_amount">$25,104.24</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_card_name">American Express Platinum</string>
+    <string name="dummy_name">Chai Days</string>
+    <string name="dummy_category">Foods</string>
+    <string name="dummy_transaction_amount">$2.99</string>
 </resources>
