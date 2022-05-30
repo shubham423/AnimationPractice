@@ -10,8 +10,6 @@ import com.example.animationpractice.models.Card
 
 class CardsAdapter(private val list: List<Card>, private val onCardClicked: (card: Card,binding:ItemCardLayoutBinding) -> Unit): RecyclerView.Adapter<CastAdapterViewHolder>() {
 
-    val cardsAdapterCallback: CardsAdapterCallback?=null
-
     class CastAdapterViewHolder(private val binding: ItemCardLayoutBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(
             card: Card,
@@ -39,8 +37,4 @@ class CardsAdapter(private val list: List<Card>, private val onCardClicked: (car
     override fun getItemCount(): Int {
         return  list.size
     }
-}
-
-interface CardsAdapterCallback{
-    fun cardClicked(card: Card)
 }
