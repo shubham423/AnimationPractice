@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="16dp"
     android:orientation="horizontal">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -21,8 +21,10 @@
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="13sp"
+            android:layout_marginTop="3dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:alpha="0.8"
             tools:text="@string/dummy_category"/>
 
     </LinearLayout>

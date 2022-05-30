@@ -17,7 +17,7 @@ class CardsAdapter(private val list: List<Card>, private val onCardClicked: (car
             card: Card,
             onCardClicked: (card: Card,binding:ItemCardLayoutBinding) -> Unit,
         ) {
-            binding.root.setCardBackgroundColor(Color.parseColor(card.colour))
+            binding.card.setCardBackgroundColor(Color.parseColor(card.colour))
             binding.root.setOnClickListener {
                 onCardClicked(card,binding)
             }

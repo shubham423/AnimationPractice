@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.transition.TransitionInflater
 import com.example.animationpractice.adapters.TransactionAdapter
 import com.example.animationpractice.databinding.FragmentCardDetailBinding
 import com.example.animationpractice.models.Card
@@ -26,6 +27,15 @@ class CardDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding= FragmentCardDetailBinding.inflate(layoutInflater)
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val animation = TransitionInflater.from(requireContext()).inflateTransition(
+            android.R.transition.move
+        )
+        sharedElementEnterTransition = animation
+        sharedElementReturnTransition = animation
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

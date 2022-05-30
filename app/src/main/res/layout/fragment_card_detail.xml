@@ -6,15 +6,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     app:showPaths="false"
+    android:background="#F9F8F9"
     app:layoutDescription="@xml/motion_scene"
     android:layout_height="match_parent">
-    <View android:layout_width="0dp" android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/background"
-        app:layout_constraintBottom_toBottomOf="@id/space"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" android:alpha="0"
-        />
 
 
     <TextView
@@ -24,19 +18,22 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/dummy_card_name" />
 
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="180dp"
+        android:minHeight="20dp"
         android:background="@drawable/rect_border_filled"
         android:elevation="8dp"
         android:transitionName="card_wide"
-        app:cardCornerRadius="12dp"
+        app:cardCornerRadius="16dp"
+        app:strokeColor="@color/white"
+        android:outlineSpotShadowColor="#7C757C"
+        app:strokeWidth="4dp"
         app:layout_constraintBaseline_toBottomOf="@id/card_name"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="62dp" />
@@ -46,18 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_transaction_layout" >
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="258dp"
+        tools:listitem="@layout/item_transaction_layout" />
 
-    </androidx.recyclerview.widget.RecyclerView>
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:id="@+id/space"
-        app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
-        app:layout_constraintTop_toBottomOf="@id/imageViewAvatar"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewAvatar"
-        app:layout_constraintStart_toStartOf="@+id/imageViewAvatar"/>
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

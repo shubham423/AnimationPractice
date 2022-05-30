@@ -15,8 +15,6 @@ import com.example.animationpractice.models.Transaction
             binding.name.text=transaction.name
             binding.amount.text="\$"+"${transaction.cost.amount}"
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionAdapterViewHolder {

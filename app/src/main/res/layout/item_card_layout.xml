@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="210dp"
-    android:layout_height="350dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="12dp"
+    android:id="@+id/card"
+    android:layout_width="250dp"
+    android:layout_height="350dp"
     android:layout_margin="8dp"
-    android:elevation="8dp"
+    android:elevation="4dp"
     android:transitionName="card_large"
-    android:background="@drawable/rect_border_filled" />
+    app:cardCornerRadius="16dp"
+    app:strokeColor="@color/white"
+    android:outlineSpotShadowColor="#7C757C"
+    app:strokeWidth="4dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
