@@ -8,16 +8,16 @@ import com.example.animationpractice.adapters.CardsAdapter.*
 import com.example.animationpractice.databinding.ItemCardLayoutBinding
 import com.example.animationpractice.models.Card
 
-class CardsAdapter(private val list: List<Card>, private val onCardClicked: (card: Card,binding:ItemCardLayoutBinding) -> Unit): RecyclerView.Adapter<CastAdapterViewHolder>() {
+class CardsAdapter(private val list: List<Card>, private val onCardClicked: (card: Card) -> Unit): RecyclerView.Adapter<CastAdapterViewHolder>() {
 
     class CastAdapterViewHolder(private val binding: ItemCardLayoutBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(
             card: Card,
-            onCardClicked: (card: Card,binding:ItemCardLayoutBinding) -> Unit,
+            onCardClicked: (card: Card) -> Unit,
         ) {
             binding.card.setCardBackgroundColor(Color.parseColor(card.colour))
             binding.root.setOnClickListener {
-                onCardClicked(card,binding)
+                onCardClicked(card)
             }
         }
 

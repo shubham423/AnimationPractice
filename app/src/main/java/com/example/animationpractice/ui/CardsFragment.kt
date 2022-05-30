@@ -61,11 +61,9 @@ class CardsFragment : Fragment() {
             if (it.isNotEmpty()) {
                 binding.balance.text = "\$"+"${NumberFormat.getNumberInstance(Locale.US).format(it[0].myCardsScreenResponse.balance.amount)}"
                 binding.userImage.load(it[0].myCardsScreenResponse.avatar)
-                adapter = CardsAdapter(it[0].myCardsScreenResponse.cards){card,binding->
-
-                    val extra= FragmentNavigatorExtras(binding.card to "card_wide")
+                adapter = CardsAdapter(it[0].myCardsScreenResponse.cards){card->
                     val bundle = bundleOf("card" to card)
-                    findNavController().navigate(R.id.action_cardsFragment_to_cardDetailFragment,bundle,null,extra)
+                    findNavController().navigate(R.id.action_cardsFragment_to_cardDetailFragment,bundle,null,null)
 
                 }
                 binding.rvCards.adapter = adapter

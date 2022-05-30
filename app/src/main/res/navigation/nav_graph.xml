@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_cards" >
         <action
             android:id="@+id/action_cardsFragment_to_cardDetailFragment"
-            app:destination="@id/cardDetailFragment" />
+            app:destination="@id/cardDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/cardDetailFragment"

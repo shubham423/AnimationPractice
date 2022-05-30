@@ -29,15 +29,6 @@ class CardDetailFragment : Fragment() {
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val animation = TransitionInflater.from(requireContext()).inflateTransition(
-            android.R.transition.move
-        )
-        sharedElementEnterTransition = animation
-        sharedElementReturnTransition = animation
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val card=arguments?.getParcelable<Card>("card")
