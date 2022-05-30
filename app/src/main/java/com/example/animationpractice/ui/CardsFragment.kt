@@ -1,11 +1,13 @@
 package com.example.animationpractice.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -36,14 +38,25 @@ class CardsFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         initObservers()
-        mainViewModel.getCardsScreenResponse()
+        if (mainViewModel.hasInternetConnection()){
+            mainViewModel.getCardsScreenResponse()
+        }else{
+            if (mainViewModel.readMyCardsScreenData.value?.size==0){
+                binding.contentLl.visibility=View.GONE
+                binding.noInternetFrame.visibility=View.VISIBLE
+            }
+        }
+
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun initObservers() {
+
         mainViewModel.readMyCardsScreenData.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 binding.balance.text = "\$"+"${NumberFormat.getNumberInstance(Locale.US).format(it[0].myCardsScreenResponse.balance.amount)}"
@@ -56,6 +69,14 @@ class CardsFragment : Fragment() {
 
                 }
                 binding.rvCards.adapter = adapter
+            }else{
+                if (!mainViewModel.hasInternetConnection()){
+                    binding.noInternetFrame.visibility=View.VISIBLE
+                    binding.contentLl.visibility=View.GONE
+                }else{
+                    binding.noInternetFrame.visibility=View.GONE
+                    binding.contentLl.visibility=View.VISIBLE
+                }
 
             }
 
